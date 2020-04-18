@@ -7,14 +7,23 @@ var searchAlbums = function (query) {
             name: query
         },
         success: function (response) {
-            resultsPlaceholder.innerHTML = response;
+            console.log(response);
+            //get age from response
+            console.log (response.age);
+            //show age in html
+            $("#results").text(response.age);
+
+            
         }
     });
 };
 
-
-
-document.getElementById('search-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    searchAlbums(document.getElementById('query').value);
-}, false); 
+console.log("hello there");
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("the document is loaded");
+    document.getElementById('search-form').addEventListener('submit', function (e) {
+        console.log("submitting");
+        e.preventDefault();
+        searchAlbums(document.getElementById('query').value);
+    }, false);
+})
